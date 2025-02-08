@@ -1,0 +1,12 @@
+
+x-env: &env
+  LOG_LEVEL: INFO
+  HTTP_PORT: 8000
+
+services:
+  index-server:
+    image: ghcr.io/fmoura/index-service:latest
+    ports:
+      - 8000:8000
+    environment:
+      <<: *env

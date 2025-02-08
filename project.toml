@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "index-client"
+version = "1.0.0"
+
+[project.scripts]
+index-client = "index-client.cli:main"
