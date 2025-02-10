@@ -1,9 +1,16 @@
 all: package
 
 # =============================================================================
+# Clean
+# =============================================================================
+clean:
+	@echo "Cleaning..."
+	rm -rf build dist *.egg-info
+
+# =============================================================================
 # Package
 # =============================================================================
-package:
+package: clean
 	@echo "Packaging..."
 	python setup.py sdist bdist_wheel
 
@@ -21,4 +28,15 @@ test:
 	@echo "Testing..."
 	pytest
 
-.PHONY: all package install
+# =============================================================================
+# Run
+# =============================================================================
+run:
+	@echo "Running..."
+	python ./src/index_client/cli.py $(filter-out $@,$(MAKECMDGOALS))
+
+.PHONY: all package install test run clean
+
+# Prevent make from interpreting the arguments as make targets
+%:
+	@:
