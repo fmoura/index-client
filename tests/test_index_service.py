@@ -1,6 +1,6 @@
 import pytest
 from aioresponses import aioresponses
-from index import IndexService, IndexNotFoundException, IndexProtocolException, InvalidArgumentException
+from index_client.index import IndexService, IndexNotFoundException, IndexProtocolException, InvalidArgumentException
 
 @pytest.mark.asyncio
 async def test_get_index_value_success():

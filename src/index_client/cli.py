@@ -1,6 +1,6 @@
 import argparse
 import asyncio
-from index import IndexService, IndexNotFoundException, IndexProtocolException
+from index_client.index import IndexService, IndexNotFoundException, IndexProtocolException
 
 
 def check_number_range(value):
