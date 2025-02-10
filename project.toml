@@ -7,4 +7,4 @@ name = "index-client"
 version = "1.0.0"
 
 [project.scripts]
-index-client = "index-client.cli:main"
+index-client = "index_client.cli:main"
