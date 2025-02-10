@@ -1,5 +1,13 @@
 all: package
 
+
+# =============================================================================
+# Requirements
+# =============================================================================
+requirements:
+	@echo "Installing requirements..."
+	pip install -r requirements.txt
+
 # =============================================================================
 # Clean
 # =============================================================================
@@ -10,7 +18,7 @@ clean:
 # =============================================================================
 # Package
 # =============================================================================
-package: clean
+package: clean requirements
 	@echo "Packaging..."
 	python -m build
 
@@ -35,7 +43,15 @@ run:
 	@echo "Running..."
 	python ./src/index_client/cli.py $(filter-out $@,$(MAKECMDGOALS))
 
-.PHONY: all package install test run clean
+
+# =============================================================================
+# Run
+# =============================================================================
+run-index-server:
+	@echo "Running Index Server..."
+	docker compose up
+
+.PHONY: all package install test run clean requirements run-index-server
 
 # Prevent make from interpreting the arguments as make targets
 %:
